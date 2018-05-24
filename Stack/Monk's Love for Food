@@ -1,0 +1,24 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+stack <int> s;
+int main() {
+    int query,type,cost;
+    cin>>query;
+    for (int i=0;i<query;i++){
+        cin>>type;
+        if(type==1){
+            if(s.empty()){
+                cout<<"No Food"<<"\n";
+            }
+            else{
+                cout<<s.top()<<"\n";
+                s.pop();
+            }
+        }
+        else{
+            cin>>cost;
+            s.push(cost);
+        }
+    }
+}
