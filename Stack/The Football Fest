@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int main() {
+    int testNo,back,id,passes,temp;
+    char type;
+    cin>>testNo;
+    for(int i=0;i<testNo;i++){
+        cin>>passes;
+        cin>>id;
+        back = id;
+        for(int j=0; j<passes;j++){
+            cin>>type;
+            if(type=='P'){
+                back=id;
+                cin>>id;
+            }
+            else{
+                temp=back;
+                back = id;
+                id = temp;
+            }
+        }
+        cout<<"Player "<<id<<"\n";
+    }
+}
