@@ -1,0 +1,34 @@
+#include<iostream>
+#include<stack>
+using namespace std;
+stack <int > st;
+int main() {
+    int no,totalCommand,final,monkCoin=0,fg=0;
+    cin>>no;
+    int arr[no];
+    string command;
+    for(int i=0;i<no;i++) {
+        cin>>arr[i];
+    }
+    int j=0;
+    cin>>totalCommand>>final;
+    for(int i=0;i<totalCommand;i++) {
+        cin>>command;
+        if(command[0]=='H'){
+            st.push(arr[j]);
+            monkCoin+=arr[j++];
+        }
+        else {
+            monkCoin-=st.top();
+            st.pop();
+        }
+        if(monkCoin == final) {
+            cout<<st.size();
+            fg=1;
+            break;
+        }
+    }
+    if (fg == 0){
+        cout<<-1;
+    }
+}
